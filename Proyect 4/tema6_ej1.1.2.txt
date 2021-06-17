@@ -1,0 +1,11 @@
+Para la configurar las direcciones IPv6 de ambas maquinas virtuales hemos utilizado los 
+comandos:
+            ifconfig eth0 inet6 add fe80::6/64
+            ifconfig eth0 inet6 add fe80::22/64
+Para comprobar que estan operativas hemos realizado un ping6 desde la otra maquina, el 
+comando utilizado ha sido pin6 fe80::6%eth0
+El sufijo %eth0 indica la interfaz de la direccion ip y se debe de poner porque al empezar 
+por fe80 es una direccion de enlace local y este sufijo es requerido para identificar
+la interfaz.
+
+Para parar network manager hemos utilizado /etc/init.d/network-manager stop.

@@ -1,0 +1,18 @@
+Para crear las particiones en el disco hemos utilizado el programa fdisk sobre el disbo /dev/sdb, todo ello en un terminal de superusuario.
+
+fdisk /dev/sdb
+
+Esta orden inicia el programa fdisk en el disco sdb, y nos pregunta qué comando queremos introducir a continuación.
+Introducimos 'p' para que nos muestre la tabla de particiones de sdb y comprobar que, efectivamente, estaba vacía.
+Después introducimos la orden 'n' para crear una nueva partición. Le indicamos que queremos que sea la primera, introduciendo '1',
+y que el primer bloque ha de ser el 2048. Posteriormente nos pide que le indiquemos el último bloque. Para calcular el último bloque
+hemos dividido el tamaño que queríamos darle a la pratición (2GB, 2147483648 bytes) entre 512 para obtener el tamaño de bloques, que son
+4194304, y a este número le hemos sumado el último bloque ya ocupado, 2047. Introducimos el número de bloque 4196351.
+
+De la misma manera añadimos la segunda partición: 'n', '2' (a continuación de la primera), '4196351' (a continuación del último bloque ocupado)
+y '16779263' (calculado de la misma forma que en la partición 1).
+
+Introducimos la orden 'w' (write) para salvar los cambios.
+
+Con ello quedan creadas ambas particiones, y podemos comprobar que el espacio sin particionar es 4,3GB (nuestro Disco Duro Virtual
+es de 12,3 GB)

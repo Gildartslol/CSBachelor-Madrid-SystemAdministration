@@ -1,0 +1,6 @@
+En la maquina b eliminamos la configuracion de red interna realizada en el ejercicio anterior
+empleando el comando ifdown eth0.Luego comprobamos con el comando dhclient eht0 que la maquina 
+recibe una nueva ip de forma dinamica.
+Finalmente guardamos la configuracion de manera permanente editando el archivo /etc/network/interface
+y cambiando en el la configuracion de la interfaz eht0 borrando las lineas address y netmask
+y cambiando el parametro static por dhcp.

@@ -1,0 +1,15 @@
+Hemos creado un nuevo disco de 2GB y lo hemos conectado a la máquina virtual. La hemos arrancado en modo
+recuperación  y hemos agregado el nuevo disco al RAID con el mandato
+
+mdadm --manage /dev/md0 --add /dev/sdf.
+
+Estábamos monitorizando el fichero /proc/mdstat y hemos observado que el disco se añadía satisfactoriamente pero
+se iniciaba un proceso de recuperación para incorporar el nuevo disco al array. Entre tanto, hemos montado el RAID
+en /mnt con el mandato
+
+mount --ext4 /dev/md0 /mnt
+
+y hemos comprobado que el fichero prueba seguía intacto. Lo hemos hecho crecer 100 MB con el mandato fallocate y
+el fichero seguía correcto.
+
+Con la orden mdadm --detail /dev/md0 hemos comprobado que el tamaño de la array es correcto y el estado es clean.

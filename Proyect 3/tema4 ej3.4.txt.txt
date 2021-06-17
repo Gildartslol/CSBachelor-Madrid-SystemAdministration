@@ -1,0 +1,21 @@
+Para crear ambos volúmenes lógicos dentro del grupo datagroup utilizamos los siguientes mandatos:
+
+lvcreate --name vol1 --size 7G datagroup
+lvcreate --name vol2 --size 4G datagroup
+
+que crea dos volúmenes de 7 y 4 GB en el grupo datagroup.
+
+Para comprobar el espacio disponible utilizamos de nuevo el mandato 
+
+vgdisplay datagroup
+
+que nos proporciona la información respectiva al grupo de volúmenes, en la que podemos ver que el
+espacio sin asignar es de 3.99 GiB
+
+Los ficheros especiales que nos sirven para poder manejar los volúmenes creados son 
+
+/dev/datagroup/vol1
+
+y
+
+/dev/datagroup/vol2

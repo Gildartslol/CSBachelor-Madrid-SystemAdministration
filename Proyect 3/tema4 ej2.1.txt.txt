@@ -1,0 +1,2 @@
+Hemos accedido a la carpeta /dev y nos hemos encontrado con los ficheros sdc, sdd, sde y sdf, correspondientes
+a los nuevos discos duros de la máquina. Sda y sdb representan los dos discos duros que ya había en la máquina.

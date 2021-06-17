@@ -1,0 +1,51 @@
+Para crear los diferentes sistemas de archivos utilizaremos la herramienta mkfs (make file system) que nos permite hacer tal indicando
+el tipo de formato y el disco en el que será creado.
+Para crear el sistema de archivos ext2 y ext4 en las particiones sdb1 y sdb2 respectivamente introducimos las siguientes órdenes,
+también en un terminal de superusuario:
+
+mkfs -t ext2 /dev/sdb1
+mkfs -t ext4 /dev/sdb2
+
+El sistema nos indica que las tareas han sido completadas.
+
+1. Montar la partición A en /mnt:
+
+#: mount -t ext2 /dev/sdb1 /mnt
+
+Como no nos indica si se ha completado con éxito, comprobamos la variable de entorno con la orden 'echo $?'. Nos devuelve 0 (no hay error).
+
+2. Crear un archivo llamado prueba A en el directorio /mnt
+
+#: nano /mnt/prueba_A
+
+3. Desmontar el directorio /mnt ¿Que ocurre con su contenido?
+
+#: umount /mnt
+
+Al hacer un 'ls' en el directorio /mnt comprobamos que el fichero prueba_A que habíamos creado ya no está, puesto que el sistema de
+archivos en cuestión ya no está añadido al árbol de ficheros.
+
+4. Montar la partición B en /mnt
+
+#: mount -t ext4 /dev/sdb2 /mnt
+
+5. Crear un archivo llamado prueba_B en el directorio /mnt
+
+#: nano /mnt/prueba_B
+
+Al hacer ls en /mnt, encontramos el nuevo fichero prueba_B pero no el fichero prueba_A
+
+6. Desmontar B de /mnt y volver a montar la partición A en dicho directorio.
+
+#: umount /mnt
+#: mount -t ext2 /dev/sdb1 /mnt
+
+7. Listar de nuevo el contenido del directorio /mnt ¿Qué ha ocurrido ahora?
+
+De nuevo encontramos el archivo prueba_A en el directorio /mnt. El archivo prueba_B existe, pero no está añadido al árbol de ficheros
+del sistema.
+
+8. En la secuencia anterior, ¿se produce alguna diferencia si el directorio de trabajo
+de la consola es ya /mnt?. De ser así, ¿cuál es la razón?
+
+Al situarnos en el directorio /mnt y ejecutar 'ls /mnt', la consola nos muestra igualmente el archivo Prueba_A. No hay ninguna diferencia.

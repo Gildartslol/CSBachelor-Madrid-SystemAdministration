@@ -1,0 +1,9 @@
+1.3 Gestión básica de permisos.
+Creamos dos ficheros en Documentos.Cambiamos el propietario del fichero y el grupo tan y como se especifica en el enunciado mediante el mandado sudo chown usuario1:grupo1 fichero2 y sudo chown practicas:grupo1 fichero1 . Fichero 1 ya pertenece a practicas pues lo hemos creado desde este usuario, solo cambiamos su grupo.
+Para establecer los permisos aplicamos
+sudo chmod 740 fichero1  rwx  r_ _   _ _ _
+sudo chmod 760 fichero2  rwx   rw_     _ _ _
+Con esto practicas puede leer y escribir en ambos.Lee del suyo propio y puede leer del fichero 2 perteneciente a usuario puesto que estan en el mismo grupo y esta activado el bit de lectura en grupo.
+Usuario 1 lee ambos ficheros, el suyo propio y fichero uno por la misma razon de antes.Pero solo puede modificar el suyo, el fichero 2, puesto que fichero 1 no tiene el bit de escritura activado en grupo.
+Fichero 1 no puede ser leido por nadie que no este en el grupo, es decir solo lo pueden leer usuario1 y practicas.
+

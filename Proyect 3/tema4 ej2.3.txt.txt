@@ -1,0 +1,8 @@
+Para guardar la configuración del nuevo RAID de manera que se cargue automáticamente hemos utilizado la orden:
+
+mdadm --detail /dev/md0 --brief >> /etc/mdadm/mdadm.conf
+
+pero previamente a ello hemos tenido que garantizar los permisos de escritura en el archivo /etc/mdadm/mdadm.conf
+
+Hemos reiniciado la máquina virtual y hemos comprobado que el archivo /dev/md0 seguía ahí y que al comprobar el fichero
+/proc/mdstat la información sobre nuestro nuevo RAID seguía actualizada.

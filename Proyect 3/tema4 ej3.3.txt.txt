@@ -1,0 +1,13 @@
+Creamos un nuevo grupo de volúmenes lógicos que comprende los tres
+discos previamente inicializados utilizando el mandato 
+
+vgcreate datagroup /dev/sdg /dev/sdh /dev/sdi
+
+Después utilizamos el mandato
+
+vgdisplay datagroup
+
+para accedera a la información correspondiente al grupo de volúmenes lógicos, en la que
+vemos que su tamaño total son 14.9 GiB, las opciones de acceso que proporciona son read/write,
+tanto de lectura como de escritura y su status es 'resizable', es decir, se le puede cambiar el
+tamaño.

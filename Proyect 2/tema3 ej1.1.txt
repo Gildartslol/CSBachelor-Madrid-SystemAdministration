@@ -1,0 +1,7 @@
+Practica 2
+
+Comentario del Scrip y decisiones de diseño.
+Nuestro script comienza comprobando con el mandado test [] si el numero de argumentos es menor que 3, si lo es establecemos una variable que tendra el numero de usuario a 5 que es el parametro por defecto, y si no tomara el valor que se le pase, es decir el tercer argumento $3.
+Posteriormente se hara lo mismo pero comprobando si el numero de argumentos es menor que 5.Si es asi se toma como grupo por defecto el primer argumento $1 y si no se toma el quinto argumento.
+Para la creacion de los diversos usuarios establecemos una variable N=1 y con esta la iremos incrementando y concantenando al comienzo de cara iteracion.
+Nuestras iteraciones para crear los usuarios y añadirlos al grupo se haran con un while que comprobara si quedan usuarios por crear.Esto lo hace chequeando la variable creada al principio de usuarios y que en cada iteracion ira decrementando.Para la creacion de usuarios usamos el sudo useradd $User(el nombre concatenado) -m .Con el parametro -m nos crea el directorio home/UsuarioCreado. Justo despues de crear el usuario chequeamos la variable $?, si es 9 significa que el usuario ya exisitia por lo tanto solamente añadimo dicho usuario al grupo especificado con sudo usermod -a -G $G $User.Y asi seguiriamos iterando hasta terminar.

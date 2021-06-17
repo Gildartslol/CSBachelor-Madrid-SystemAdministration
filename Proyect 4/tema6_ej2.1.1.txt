@@ -1,0 +1,14 @@
+Instalamos el servidor dhcp que proporciona isc con el comando apt-get install isc-dhcp-server
+Una vez hecho esto editamos el archivo de configuracion etc/default/isc-dhcp-server.En el
+indicamos la interfaz de red interna a la que tiene que servir direcciones mediante la linea
+INTERFACES = "eth0"
+A continuacion editamos el archivo de configuracion etc/dhcp/dhcpd.conf
+Indicamos los atributos de la red a la que tiene que servir direcciones añadiendo las siguientes
+lineas 
+subnet 192.168.100.0 netmask 255.255.255.0 {
+range 162.168.100.7 192.168.100.25;
+option routers 192.168.100.6;
+}
+Notar que aunque el guion de la practica indica que el rango de direcciones debe ser de .2 a .10
+puesto que nuestra direccion ip es la .6 hemos elegido un rango que no la incluya para no
+generar conflictos.

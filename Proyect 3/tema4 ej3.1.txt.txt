@@ -1,0 +1,2 @@
+Tras crear los nuevos discos y instalar la herramienta lvm2, hemos accedido al directorio /dev para
+comprobar que sus ficheros especiales son sdg sdh y sdi

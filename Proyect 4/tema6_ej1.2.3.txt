@@ -1,0 +1,6 @@
+Para hacer los cambios persistentes añadimos las siguientes lineas en etc/networkt/interfaces
+posp-up  /sbin/iptables --table nat --append POSTROUTING --out-interface eth1 -j MASQUERADE
+post-up  /sbin/iptables --append FORWARD --in-interface eth0 -j ACCEPT
+Tambien hacemos que la interfaz eth1 se inicie autamaticamente poniedo
+auto eth1
+  

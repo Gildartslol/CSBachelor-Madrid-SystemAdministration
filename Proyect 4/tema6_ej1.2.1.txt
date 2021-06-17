@@ -1,0 +1,17 @@
+MAQUINA A
+Para habilitar el ip forwading hemos usado el siguiente comando en la maquina original
+    sysctl -w net.ipv4.ip_forward=1
+
+Recordar que nuestras maquinas virtuales eth0 es la interfaz empleada para la red interna 
+y eth1 es la utilizada en la máquina original para dar salida a internet.
+
+Para la configuración de las iptables de la máquina original introducimos los siguientes 
+comandos
+        iptables  --table nat --append POSTROUTING --out interface eth1 -j MASQUERADE
+        //este comando añade una regla de manera que se enmascaren los paquetes que van 
+          a salir por la eth1 para permitir que la segunda maquina tenga acceso a internet
+        iptables --append FORWARD --in-interface eth0 -j ACCEPT
+        //este comando añade una regla de reenvio de paquetes de modo que los paquetes que 
+        entren por eth0 salgan a internet.
+
+

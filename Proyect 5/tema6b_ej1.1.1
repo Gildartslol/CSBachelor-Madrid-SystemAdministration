@@ -1,0 +1,15 @@
+MAQUINA A
+Logueamos como root. sudo su
+apt-get install nfs-common 
+apt-get install nfs-kernel-server
+
+Creamos un directorio  al que llamaremos nfs-export dentro del directorio home.
+Movemos todos los homes de los usuarios a este nuevo directorio.
+Utilizamos el comando
+    mv practicas nfs-exports
+
+Ahora entramos al etc/passwd y modificamos la linea del usuario practicas (unico usuario)
+y actualizamos el path de su directorio home.
+
+La variable de entorno HOME seguia mostrando el path anterior, pero al reiniciar la maquina
+se actualiza.

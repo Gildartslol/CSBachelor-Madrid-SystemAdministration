@@ -1,0 +1,10 @@
+Al utilizar NFS para crear un sistema de archivos distribuído, la máquina cliente 
+recibe un ID de usuario cualquiera en la máquina servidora. Esto es así incluso si
+la máquina cliente está logueada como root. Sin embargo, si se especifica la opción
+no_root_squash en las líneas correspondientes del fichero /etc/exports, el User ID que
+se le asigna es 0, es decir el de root.
+
+Dicho esto:
+
+No se pueden crear los archivos en el home de una u otra máquina A NO SER que se haya
+especificado la opción no_root_squash

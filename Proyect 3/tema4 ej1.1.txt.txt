@@ -1,0 +1,6 @@
+cd ../proc
+cat partitions
+
+en el fichero partitions del directorio /proc hemos encontrado información referente a las particiones del sistema,
+y hemos podido observar que el archivo /deb/sdb es el referente al disco duro virtual que hemos creado, mirando tanto
+su tamaño como el hecho de que el otro disco (sda) está particionado en sda1, sda2 y sda5.

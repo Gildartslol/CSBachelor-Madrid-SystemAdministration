@@ -1,0 +1,20 @@
+Cremos un nuevo sistema de archivos ext4 en el vol1 y lo montamos en /mnt con los 
+mandatos que ya hemos usado anteriormente:
+
+mkfs -t ext4 /dev/datagroup/vol1
+mount -t ext4 /dev/datagroup/vol1 /mnt
+
+Después generamos un fichero prueba de 512 MB con el mandato
+
+fallocate -l 512M prueba
+
+1. A la hora de realizar estas operaciones básicas el proceso y los mandatos que hay
+que ejecutar son exactamente los mismos. La diferencia reside en que una partición de 
+disco corriente tiene asignado su volumen todo el rato, y el tamaño del volumen lógico
+se asigna de manera dinámica. Como ahora nuestro volumen solo tiene un archivo de 512MB,
+ese será su tamaño, que irá creciento conforme se le añadan más ficheros hasta llegar a
+su máximo de 7GB.
+
+2. No se puede saber, al menos de manera sencilla, dónde está el archivo porque el sistema
+interpreta el volumen lógico como si fuera un disco más y no "sabe" que en realidad es
+solo eso, un montaje lógico.

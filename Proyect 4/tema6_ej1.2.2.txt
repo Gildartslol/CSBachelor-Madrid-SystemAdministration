@@ -1,0 +1,6 @@
+MAQUINA B
+
+Para que la maquina b se conecta a internet es necesario que la maquina a enrute los paquetes enviados.Para ello le hemos indicado a B que la maquina A es su Gateway
+a traves del comando :
+ 	route add default gw 192.168.100.6 eth0
+y configurado la maquina la maquina A para que enrute los paquetes.

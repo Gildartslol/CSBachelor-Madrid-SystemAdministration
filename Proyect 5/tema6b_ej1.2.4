@@ -1,0 +1,15 @@
+Añadimos un nuevo usuario con useradd user1
+
+Creamos un fichero dentro del home de practicas y hacemos que le propietario del mismo
+sea el nuevo usuario con 
+    nano squirtle.txt 
+    Ctl-o ctl-X
+    chown user1 squirtle.txt
+
+Aparece nobody.Podriamos decir que esto se debe a que el user1 creado esta en el servidor 
+pero no en la maquina cliente , por lo cual no es identificado por esta.Para este tipo 
+de situacion NFS implementa el usuario nobody.
+
+
+    
+    

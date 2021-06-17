@@ -1,0 +1,5 @@
+1.1 Creación de un usuario
+Comando usado : sudo adduser usuario1
+¿Cuál es su UID?  Su UID es el 1001.Se toma el siguiente libre a partir de 1000.El resto estan reservados. Para comprobarlo ( aunque aparece cuando lo creas) hemos usado el comando id-u usuario1.
+¿A qué grupo pertenece? Pertence al grupo 1001.Cuando se crea un usuario tiene su grupo correspondiente con su mismo nombre.Lo dice pero podriamos usar el comando id -g usuario1.
+¿Cuál es el GID de dicho grupo? Si GID es el 1001

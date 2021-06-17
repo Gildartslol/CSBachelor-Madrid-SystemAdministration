@@ -1,0 +1,6 @@
+Una vez que hemos reconocido los discos nuevos, los transformamos en 
+volúmenes físicos de LVM con el mandato:
+
+pvcreate /dev/sdg /dev/sdh /dev/sdi
+
+que crea los volúmenes físicos de LVM a partir de los discos conectados.

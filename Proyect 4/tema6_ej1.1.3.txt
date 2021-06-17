@@ -1,0 +1,8 @@
+La configuracion de /etc/network/interfaces para IPv4 queda de la siguiente manera :
+
+iface eth0 inet static 
+address 192.168.100.6 // en la otra maquina seria .22
+netmask 255.255.255.0
+
+De este modo el network manager cargara esta configuración cada vez que se inicialice la 
+interfaz, como por ejemplo, cuando arrancamos la máquina.

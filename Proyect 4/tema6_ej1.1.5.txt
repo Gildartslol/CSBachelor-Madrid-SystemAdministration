@@ -1,0 +1,5 @@
+Hemos modificado en etc/hosts de la siguiente manera
+En la maquina original 
+        192.168.100.22   ASI2014B
+en la maquina clonada
+        192.168.100.6   ASI2014

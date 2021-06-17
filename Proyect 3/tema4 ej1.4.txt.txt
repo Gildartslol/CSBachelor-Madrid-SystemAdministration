@@ -1,0 +1,30 @@
+De nuevo ejecutaremos las siguientes órdenes desde un terminal de superusuario.
+
+1. Crear el grupo alumnos y el directorio /home/alumnos
+
+#: groupadd alumnos
+#: mkdir/home
+
+2. Montar la partici´on B en el directorio /home/alumnos
+
+#: mount -t ext4 /dev/sdb2 /home/alumnos
+
+3. Cambiar a alumnos el grupo del directorio /home/alumnos
+
+#: chown :alumnos /home/alumnos
+
+4. Crear el usuario alumno1. Debe pertenecer al grupo alumnos y us directorio home
+debe encontrarse en /home/alumnos/alumno1
+
+#: useradd alumno1 -g alumnos -b /home/alumnos/alumno1
+
+Después hemos editado el archivo /etc/fstab, y hemos añadido la siguiente línea:
+
+/dev/sdb2	/home/alumnos	rw,auto,user,exec	0	0
+
+El primer campo indica dónde se encuentra la partición a montar (/dev/sdb2)
+El segundo campo indica el punto de inicio donde debe ser montada (/home/alumnos)
+El tercer campo son las opciones. Hemos activado rw (leer y escribir), auto (para que se monte automáticamente),
+user (para que los usuarios puedan montar la partición) y exec (permiso de ejecución de programas).
+
+Los dos últimos campos, dump y pass, son utilizados para realizar comprobaciones por el sistema y los hemos dejado a 0.

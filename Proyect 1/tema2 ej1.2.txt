@@ -1,0 +1,9 @@
+1.2 Creación de un grupo
+Comando usado: sudo groupadd grupo1
+El nuevo grupo es el 1002
+Para añadir añadir un usuario a un grupo usamos el comando usermod -a -G <groupname> username.
+Luego	  usermod -a -G grupo1 practicas
+	  usermod -a -G grupo1 usuario1
+y para comprobar que efectivamente han sido añadidos al grupo lo compramos con el comando id -G username que nos devuelve todos los grupos asociados a dicho usuario.
+id -G practicas 1000 24 25 27 29 30 44 46 1002
+id -G usuario1 1001 1002

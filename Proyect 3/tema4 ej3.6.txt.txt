@@ -1,0 +1,33 @@
+El fichero especial del nuevo disco es sdj. 
+Inicializamos el volumen físico con el mandato
+
+pvcreate /dev/sdj
+
+Y lo agregamos al grupo de volúmenes con el mandato
+
+vgextend datagroup /dev/sdj
+
+1. Previamente a añadir el disco hemos tenido que inicializar el volúmen físico.
+2. 18.98 GiB
+
+Para cambiar el tamaño de vol1 a 14GB utilizamos el siguiente mandato:
+
+lvextend -L14G /dev/datagroup/vol1.
+
+El sistema de archivos no se ha adecuado al nuevo tamaño del volumen lógico y 
+por tanto no se puede aprovechar el tamaño añadido. Para poder aprovechar todo
+el volumen hay que redimensionar el tamaño de lsistema de archivos con la herramienta resize2fs.
+
+Primero hay que utilizar el mandato
+
+e2fsck -f /dev/datagroup/vol1
+
+Esta herramienta verifica el estado del volumen vol1 antes de modificar su sistema de archivos.
+Posteriormente ejecutamos el mandato
+
+resize2fs /dev/datagroup/vol1
+
+Para que el sistema de archivos se adecúe al tamaño que tiene disponible.
+La herramienta nos comunica que se ha ampliazo correctamente el sistema de archivos, y nosotros
+lo hemos comprobado ampliando el archivo prueba hasta los 14GB de manera satisfactoria (intentando
+ampliarlo a más de 14GB el sistema nos dice que hay insuficiente espacio).

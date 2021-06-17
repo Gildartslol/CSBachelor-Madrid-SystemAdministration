@@ -1,0 +1,23 @@
+1. Hemos utilizado la orden mdadm para crear el RAID 5 con los discos que acabamos de añadir
+
+mdadm --create --level=5 --raid-devices=4 /dev/md0 /dev/sdc /dev/sdd /dev/sde /dev/sdf
+
+Mientras tanto estábamos observando el fichero /proc/mdstat, y hemos visto que en él ha aparecido información
+al haber creado el RAID 5 (el fichero antes estaba vacío).
+
+Hay una línea que dice 
+Personalities: [Raid6] [Raid5] [Raid4]
+Esta línea nos indica que nuestro kernel soporta esos tres tipos de RAID.
+
+A continuación aparece información sobre el RAID que hemos creado:
+Es de solo lectura, los discos duros por los que está formado, el tamaño total, el tamaño de bloque, etc.
+
+2. Hemos utilizado el mandato mdadm para conocer los detalles del nuevo RAID:
+
+mdadm --detail /dev/md0
+
+Y hemos conocido que el tamaño del nuevo array es de 6286848 bloques, 6.00 GiB. Pese a que hemos utilizado 
+cuatro discos de 2 GB, el tamaño disponible son 6GB porque el resto se emplea en bloques de paridad para 
+garantizar la protección y la coherencia de los datos.
+
+3. md0

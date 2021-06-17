@@ -1,0 +1,4 @@
+MAQUINA B 
+Para hacer permanentes los cambios en la maquina b editamos el archivo /etc/network/interfaces
+ y en configuracion de la interfaz eth0 añadimos la lineas
+gateway192.168.100.6

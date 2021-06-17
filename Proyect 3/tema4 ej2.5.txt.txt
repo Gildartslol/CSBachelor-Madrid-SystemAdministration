@@ -1,0 +1,20 @@
+Tras apagar la máquina virtual, borrar uno de los discos y arrancarla en modo recuperación, utilizamos el mandato
+
+mount -t ext4  /dev/md0 /mnt
+
+montamos el RAID en /mnt de nuevo.
+
+1. El fichero /proc/mdstat nos indica que el RAID sigue activo, con el mismo tamaño, pero que ahora solo emplea
+los discos sdc, sdd y sde
+
+2. El fichero prueba creado anteriormente sigue en /mnt intacto
+
+3. El tamaño del array es, al igual que antes, 6286848 bloques, 6.00 GiB. Esto sucede porque RAID es redundante, garantizando
+que la información seguirá estando disponible aunque uno de los dispositivos falle. 
+
+4. 3 dispositivos
+
+5. 'clean, degraded'. Lo que quiere decir es que la información sigue disponible pero que hay una pérdida de rendimiento puesto
+que uno de los discos ha fallado. Se puede acceder a la información pero en caso de que otro disco falle se perderá toda ella.
+
+6. Si desconectamos un segundo disco se perdería toda la información y el RAID no sería capaz de recuperarse.

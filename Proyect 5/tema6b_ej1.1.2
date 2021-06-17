@@ -1,0 +1,14 @@
+MAQUINA A
+
+Entramos al fichero /etc/exports y lo modificamos de la siguiente manera
+
+/home/nfs-exports 192.168.100.22(rw,sync)
+
+OPCIONES
+rw-permiso lectura escritura
+sync - Para no violar el protocolo NFS.Aunque la opcion esta dada por defecto su uso es recomendado
+para que el programa no lance un warning.
+no_root_squash - No sabemos si es asi exactamente, pero stackoverflow lo recomienda.
+Con esto exportamos el directorio a la maquina especificada.
+Para reiniciar el servidor NFS se usa el siguiente mandato:
+/etc/init.d/nfs-kernel-server restart

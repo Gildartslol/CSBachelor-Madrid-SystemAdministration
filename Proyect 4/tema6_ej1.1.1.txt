@@ -1,0 +1,18 @@
+1.1 Configuracion de LAN privada.
+Un punto a comentar es que hemos habilitado la interfaz eth0 para la red interna y eth1 
+para internet.
+Tras la configuracion de las dos maquinas virtuales activando otro adaptador interno
+para la comparticion de una red interna, procedemos a la configuracion de las interfaces.
+Para configurar las direcciones IPv4 de ambas maquinas virtuales hemos utilizado los 
+comandos : 
+            ifconfig eth0 inet 192.168.100.6 netmask 255.255.255.0
+            ifconfig eth0 inet 192.168.100.22 netmask 255.255.255.0
+Elegimos los numeros 6 y 22 ya que la mascara de red nos permite elegir cualquier direccion
+comprendida entre 192.168.100.0 y 192.168.100.255.Posteriormente hemos hecho ping entre ambas
+maquinas virtuales de manera satisfactoria y hemos hecho un ping a la 192.168.100.5 para 
+comprobar que efectivamente no se puede llegar a ella.
+
+
+
+Para parar network manager hemos utilizado /etc/init.d/network-manager stop.
+

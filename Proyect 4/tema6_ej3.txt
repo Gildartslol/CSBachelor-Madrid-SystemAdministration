@@ -1,0 +1,27 @@
+Para conectar las máquinas virtuales e iniciar una sesión remota de una a la otra hemos primero de todo ejecutado
+el siguiente comando en la máquina A:
+
+ssh-keygen
+
+que genera una serie de claves ssh que serán necesarias para realizar la conexión.
+
+Posteriormente hemos copiado la clave pública de la máquina A (fichero /root/.ssh/id_rsa.pub) al fichero de claves autorizadas
+de la máquina B. Para ello hemos empleado el mandato:
+
+scp /root/.ssh/id_rsa.pub practicas@ASI2014B:/tmp/
+
+este comando copia dicho fichero a la carpeta de archivos temporales de la máquina B.
+
+Posteriormente copiamos el contenido del dicho fichero de la máquina B en el fichero de claves autorizadas de la misma,
+empleando para ello:
+
+cat /tmp/id_rsa.pub > /root/.ssh/authoriced_keys
+
+Una vez hecho esto la clave pública de la máquina A se encuentra entre las autorizadas de la máquina B, y por consiguiente
+puede iniciar sesión remota en ella escribiendo en el terminal de la máquina A:
+
+ssh practicas@ASI2014B 
+
+y escribiendo la contraseña correspondiente.
+
+Para permitir que la máquina B inicie sesión en la máquina A tan solo hay que realizar el proceso análogo.
